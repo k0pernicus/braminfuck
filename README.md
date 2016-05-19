@@ -5,8 +5,8 @@ Braminfuck, a brainfuck interpreter in Nim.
 
 ```nimble build```
 
-If you want to interpret a 'live' brainfuck program:
+If you want to interpret a 'live' brainfuck program:  
 ```echo "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++." | ./braminfuck```
 
-If you want to interpret a brainfuck program:
+If you want to interpret a brainfuck program:  
 ```./braminfuck myprogram.b```
