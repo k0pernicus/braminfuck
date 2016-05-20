@@ -45,8 +45,6 @@ proc run(code: string) =
     if cells_pointer == cells.len:
       cells.add(0)
 
-    #echo "=> ", code[data_pointer]
-
     case code[data_pointer]:
       of '>': inc(cells_pointer)
       of '<': dec(cells_pointer)
@@ -58,10 +56,9 @@ proc run(code: string) =
         if cells[cells_pointer] == 0:
           var open_brackets = 0
           inc(data_pointer)
-          while code[data_pointer] == ']' or open_brackets > 0:
+          while code[data_pointer] != ']' or open_brackets > 0:
             if code[data_pointer] == '[': inc(open_brackets)
-            if code[data_pointer] == ']' and open_brackets > 0:
-              dec(open_brackets)
+            if code[data_pointer] == ']' and open_brackets > 0: dec(open_brackets)
             inc(data_pointer)
         else:
           casual_statement.add(data_pointer)
