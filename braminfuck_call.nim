@@ -1,5 +1,5 @@
 from meta_braminfuck import compileFile
 
-proc mandelbrot = fromFile("examples/mandelbrot.b.txt")
+proc braminfuck_call = fromFile("examples/mandelbrot.b.txt")
 
-mandelbrot()
+braminfuck_call()
