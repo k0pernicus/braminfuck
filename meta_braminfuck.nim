@@ -38,6 +38,5 @@ proc braminfuck(b_program: string): NimNode {.compiletime.} =
 
   return prg_skeleton[0]
 
-static:
-  let prg_skeleton = braminfuck(staticRead("examples/mandelbrot.b.txt"))
-  log(prg_skeleton.repr)
+macro fromFile*(filename: string): stmt =
+  braminfuck staticRead(filename.strval)
