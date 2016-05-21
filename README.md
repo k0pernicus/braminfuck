@@ -27,3 +27,6 @@ The meta-programming program is faster than the live brainfuck interpreter.
 To use it, please to compile the ```braminfuck_call.nim``` program using the
 brainfuck file you want to execute.  
 After that, you just have to execute ```./braminfuck_call```.
+
+Inspiration, for the meta-prog part, from
+[this post](https://howistart.org/posts/nim/1).
