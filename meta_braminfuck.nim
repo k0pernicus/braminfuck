@@ -14,7 +14,7 @@ proc braminfuck(b_program: string): NimNode {.compiletime.} =
   template newStatement(text): stmt =
       prg_skeleton[prg_skeleton.high].add(parseStmt(text))
 
-  newStatement "var cells = array[3_000, uint8]"
+  newStatement "var cells: array[3_000, uint8]"
   newStatement "var cells_pointer: uint = 0"
 
   while data_pointer < b_program.len:
@@ -29,7 +29,7 @@ proc braminfuck(b_program: string): NimNode {.compiletime.} =
       of '[': prg_skeleton.add(newStmtList())
       of ']':
         var loop_to_0 = newNimNode(nnkWhileStmt)
-        loop_to_0.add(parseStmt("cells[cells_pointer != 0]"))
+        loop_to_0.add(parseStmt("cells[cells_pointer] != 0"))
         loop_to_0.add(prg_skeleton.pop)
         prg_skeleton[prg_skeleton.high].add(loop_to_0)
       else: discard
@@ -39,5 +39,5 @@ proc braminfuck(b_program: string): NimNode {.compiletime.} =
   return prg_skeleton[0]
 
 static:
-  let prg_skeleton = braminfuck("+>+[-]>,.")
+  let prg_skeleton = braminfuck(staticRead("examples/mandelbrot.b.txt"))
   log(prg_skeleton.repr)
