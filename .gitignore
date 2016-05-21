@@ -1,3 +1,6 @@
 nimcache/
 *.swp
 braminfuck
+braminfuck_call
+mandelbrot
+meta_braminfuck
